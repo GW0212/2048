@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>2048</title>
+  <link rel="icon" href="favicon.png" type="image/png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <div class="soundbar">
+      <button id="soundToggle" class="sound-toggle" type="button" aria-label="사운드 토글">🔊 Sound: ON</button>
+    </div>
+    <header class="topbar" aria-label="게임 상단 바">
+      <div class="scorebox" aria-label="현재 점수">
+        <div class="label">현재 점수</div>
+        <div id="score" class="value">0</div>
+      </div>
+
+      <div class="scorebox" aria-label="최고 기록">
+        <div class="label">최고 기록 <span id="bestNameInline" class="label-name"></span></div>
+        <div id="best" class="value">0</div>
+      </div>
+
+      <button id="resetBtn" class="reset" type="button" aria-label="리셋">Reset</button>
+    </header>
+
+    <main class="board-wrap">
+      <div id="board" class="board" aria-label="2048 보드">
+        <div id="bg" class="bg" aria-hidden="true"></div>
+        <div id="tiles" class="tiles" aria-hidden="true"></div>
+      </div>
+      
+    </main>
+  </div>
+
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-card">
+      <div id="modalTitle" class="modal-title">알림</div>
+
+      <div class="modal-body">
+        <div id="modalMsg" class="modal-msg"></div>
+
+        <div id="modalGameOverWrap" class="modal-panel hidden" aria-label="게임 오버 상세">
+          <div class="row">
+            <div class="k">최고 기록</div>
+            <div id="modalBest" class="v">0</div>
+          </div>
+          <div class="row sub">
+            <div class="k">이름</div>
+            <div id="modalBestName" class="v">-</div>
+          </div>
+          <div class="divider"></div>
+          <div class="row">
+            <div class="k">최종 점수</div>
+            <div id="modalFinal" class="v">0</div>
+          </div>
+        </div>
+
+        <div id="modalNameWrap" class="modal-name hidden" aria-label="이름 입력">
+          <label class="modal-name-label" for="nameInput">이름</label>
+          <input id="nameInput" class="modal-name-input" type="text" maxlength="16" placeholder="예: 근우님" />
+          <div class="modal-name-hint">로컬(이 PC/브라우저)에만 저장됩니다.</div>
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <button id="modalPrimary" class="modal-ok" type="button">확인</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
